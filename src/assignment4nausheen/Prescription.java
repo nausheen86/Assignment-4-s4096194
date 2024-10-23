@@ -114,7 +114,7 @@ public class Prescription {
         // Write to remark.txt, FileWriter object created
         try (FileWriter writer = new FileWriter("remark.txt", true)) { // true so it dosent overwrite existing txt in file
             writer.write("Remark: " + remark + "\n");
-            writer.write("Category: " + category + "\n" + "\n");
+            writer.write("Category: " + category + "\n" + "\n"); //to create a empty line space
             return true; // written to remark.txt 
         } catch (IOException e) {
             e.printStackTrace(); // handles errors

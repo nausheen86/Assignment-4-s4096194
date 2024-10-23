@@ -1,18 +1,20 @@
 package assignment4nausheen;
 
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-import java.util.*;
+import org.junit.jupiter.api.Test; // imports JUnit 5 Tests
+import static org.junit.jupiter.api.Assertions.*; // imports Assertions
+import java.util.*; // imports Date class
 
 
 public class Testers {
 	
 	// addPrescription
+	
+	//assertTrue will write to file while assertFalse wont
 
     @Test
     public void testAddPrescriptionValid() {
-        Date d1 = new Date();
-        Prescription post1 = new Prescription();
+        Date d1 = new Date(); // creates Date object
+        Prescription post1 = new Prescription(); // creates Prescription class object
         // Test Data 1: Valid input
         assertTrue(post1.addPrescription(1, "Liam", "Smith", "123 Bourke Street, Melbourne, 3000, Australia", -19.50f, -3.50f, 100f, d1, "Dr. Optometrist"));
         // Test Data 2: Valid input
