@@ -1,0 +1,20 @@
+Prescription ID: 1
+First Name: Liam
+Last Name: Smith
+Address: 123 Bourke Street, Melbourne, 3000, Australia
+Sphere: -19.5
+Cylinder: -3.5
+Axis: 100.0
+Examination Date: 23/10/24
+Optometrist: Dr. Optometrist
+
+Prescription ID: 2
+First Name: Bobby
+Last Name: Lamar
+Address: 456 Sydney Road, Sydney, 2000, Australia
+Sphere: 15.25
+Cylinder: -2.25
+Axis: 80.0
+Examination Date: 23/10/24
+Optometrist: Dr. Optometrist
+
