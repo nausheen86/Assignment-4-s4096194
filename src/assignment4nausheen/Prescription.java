@@ -45,7 +45,7 @@ public class Prescription {
             return false; 
         }
 
-        // Assign values to member variables if all if statements pass
+        // Assigns valid values to member variables if all if statements pass
         this.prescID = prescID; 
         this.firstName = firstName; 
         this.lastName = lastName; 
@@ -86,6 +86,7 @@ public class Prescription {
     	//a maximum of 20 words. Moreover, the first character of the first 
     	//word should be an uppercase letter. 
     	
+    	// Count the number of words in the remark
         int wordCount = 1; 
         for (int i = 0; i < remark.length(); i++) {
             if (remark.charAt(i) == ' ') {
