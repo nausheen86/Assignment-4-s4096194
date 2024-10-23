@@ -94,7 +94,7 @@ public class Prescription {
             }
         }
 
-        if (wordCount < 6 || wordCount > 20 || !Character.isUpperCase(remark.charAt(0))) {
+        if (wordCount < 6 || wordCount > 20 || !Character.isUpperCase(remark.charAt(0))) { //first character of the first word
             return false; // Invalid remark
         }
 
