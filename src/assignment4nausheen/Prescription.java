@@ -1,8 +1,8 @@
 package assignment4nausheen;
 
-import java.io.*;
-import java.util.*;
-import java.text.SimpleDateFormat;
+import java.io.*; // imports everything in io class
+import java.util.*; // imports everything in util class
+import java.text.SimpleDateFormat; // for date fomatting
 
 public class Prescription {
 
@@ -15,17 +15,17 @@ public class Prescription {
     private float cylinder;
     private Date examinationDate; 
     private String optometrist;
-    private String[] remarkTypes = {"Client", "Optometrist"};
-    private ArrayList<String> postRemarks = new ArrayList<>();
+    private String[] remarkTypes = {"Client", "Optometrist"}; // only valid remark types 
+    private ArrayList<String> postRemarks = new ArrayList<>(); // remarks added here
 
     public boolean addPrescription(int prescID, String firstName, String lastName, String address,
                                    float sphere, float cylinder, float axis,
-                                   Date examinationDate, String optometrist) {
+                                   Date examinationDate, String optometrist) { // parameters needed
         
     	// Condition 1: First Name and Last Name length between 4 and 15 characters
         if (firstName.length() < 4 || firstName.length() > 15 || 
             lastName.length() < 4 || lastName.length() > 15) {
-            return false; 
+            return false; // wont reach here if conditions are valid
         }
 
         // Condition 2: Address should have a minimum of 20 characters
@@ -45,6 +45,7 @@ public class Prescription {
             return false; 
         }
 
+        // Assign values to member variables if all if statements pass
         this.prescID = prescID; 
         this.firstName = firstName; 
         this.lastName = lastName; 
@@ -55,30 +56,31 @@ public class Prescription {
         this.examinationDate = examinationDate; 
         this.optometrist = optometrist;
 
-        // Write to presc.txt
-        try (FileWriter writer = new FileWriter("presc.txt", true)) {
+        // Write to presc.txt, FileWriter object created
+        try (FileWriter writer = new FileWriter("presc.txt", true)) { // true so it dosent overwrite existing txt in file
             writer.write("Prescription ID: " + this.prescID + "\n");
-            writer.write("First Name: " + this.firstName + "\n");
+            writer.write("First Name: " + this.firstName + "\n"); // \n is nextLine
             writer.write("Last Name: " + this.lastName + "\n");
             writer.write("Address: " + this.address + "\n");
             writer.write("Sphere: " + this.sphere + "\n");
             writer.write("Cylinder: " + this.cylinder + "\n");
             writer.write("Axis: " + this.axis + "\n");
-            writer.write("Examination Date: " + formatExaminationDate(this.examinationDate) + "\n");
-            writer.write("Optometrist: " + this.optometrist + "\n" + "\n");
-            return true; 
+            writer.write("Examination Date: " + formatExaminationDate(this.examinationDate) + "\n"); // calls formatExaminationDate
+            writer.write("Optometrist: " + this.optometrist + "\n" + "\n");                          // method below
+            return true; // written to presc.txt 
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace(); // handles errors
         }
-        return false;
+        return false; // fails to write to presc.txt
     }
 
+    // Helper method to format the examination date (dd/MM/yy)
     private String formatExaminationDate(Date examinationDate) {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
-        return formatter.format(examinationDate);
+        return formatter.format(examinationDate); // returns formatted date as above
     }
 
-    public boolean addRemark(String remark, String category) {
+    public boolean addRemark(String remark, String category) { // parameters needed
     	
     	// Condition 1. The remark text should have a minimum of 6 words and 
     	//a maximum of 20 words. Moreover, the first character of the first 
@@ -101,22 +103,22 @@ public class Prescription {
             return false; // Invalid category
         }
 
-     // Additionally, a prescription cannot have more than 2 remarks.
+        // Additionally, a prescription cannot have more than 2 remarks.
         if (postRemarks.size() > 2) {
             return false; 
         }
 
-        // adds to ArrayList
+        // adds to ArrayList postRemarks
         postRemarks.add(remark);
 
-        // Write to remark.txt
-        try (FileWriter writer = new FileWriter("remark.txt", true)) {
+        // Write to remark.txt, FileWriter object created
+        try (FileWriter writer = new FileWriter("remark.txt", true)) { // true so it dosent overwrite existing txt in file
             writer.write("Remark: " + remark + "\n");
             writer.write("Category: " + category + "\n" + "\n");
-            return true; // Valid
+            return true; // written to remark.txt 
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace(); // handles errors
         }
-        return false; 
+        return false; // fails to write to remark.txt
     }
 }
