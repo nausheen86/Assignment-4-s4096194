@@ -74,7 +74,7 @@ public class Prescription {
         return false; // fails to write to presc.txt
     }
 
-    // Helper method to format the examination date (dd/MM/yy),            Condition 5
+    // Helper method to format the examination date (dd/MM/yy),            Condition 4
     private String formatExaminationDate(Date examinationDate) {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
         return formatter.format(examinationDate); // returns formatted date as above
